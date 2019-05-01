@@ -9,11 +9,13 @@ public class SoundManager : MonoBehaviour
     AudioSource[] sources;
     public AudioSource sourcePrefab;
     public AudioClip[] playerStep;
+    public AudioClip[] monsterStep;
     public AudioClip[] background;
     public Transform player;
 
     Vector3 playerPos;
-    int lastWalk;
+    int lastPlayerWalk;
+    int lastMonsterWalk;
 
     private void Awake()
     {
@@ -49,8 +51,14 @@ public class SoundManager : MonoBehaviour
 
     public void PlayerWalkSound(Vector3 playerPosition)
     {
-        int clipNum = GetRandom(playerStep.Length, lastWalk);
-        lastWalk = PlaySound(playerStep, clipNum,playerPosition);
+        int clipNum = GetRandom(playerStep.Length, lastPlayerWalk);
+        lastPlayerWalk = PlaySound(playerStep, clipNum,playerPosition);
+    }
+
+    public void MonsterWalkSound(Vector3 monsterPosition)
+    {
+        int clipNum = GetRandom(monsterStep.Length, lastMonsterWalk);
+        lastMonsterWalk = PlaySound(monsterStep, clipNum, monsterPosition);
     }
 
 
@@ -60,7 +68,7 @@ public class SoundManager : MonoBehaviour
         AudioSource source = GetSource();
         source.clip = clips[clipNum];
         source.transform.position = pos;
-        source.pitch = Random.Range(.925f, 1.075f);
+        //source.pitch = Random.Range(.925f, 1.075f);
         source.Play();
         return clipNum;
     }
