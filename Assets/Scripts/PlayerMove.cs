@@ -29,6 +29,8 @@ public class PlayerMove : MonoBehaviour
     Transform player;
     Vector3 position;
 
+    public Animator thisAnimator;
+
     void Start()
     {
         player = GetComponent<Transform>();
@@ -50,7 +52,16 @@ public class PlayerMove : MonoBehaviour
     {
         velocity = new Vector3(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"),0 ).normalized * moveSpd;
 
-
+        if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0 || Mathf.Abs(Input.GetAxisRaw("Vertical")) > 0)
+        {
+            print("fuck my life");
+            thisAnimator.SetBool("running", true);//Play("PlayerWalking");
+        }
+        else
+        {
+            print("fuck your life");
+            thisAnimator.SetBool("running", false);//.Play("Stand");
+        }
         MouseLook();
     }
 
