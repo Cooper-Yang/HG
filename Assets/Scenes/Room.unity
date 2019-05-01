@@ -388,7 +388,7 @@ GameObject:
   - component: {fileID: 592353551}
   - component: {fileID: 592353552}
   m_Layer: 0
-  m_Name: View Visualization
+  m_Name: View Visualization For Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -605,6 +605,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   viewRadius: 5.5
   viewAngle: 27
+  viewAngleAmount: 27
   targetMask:
     serializedVersion: 2
     m_Bits: 512
@@ -1311,6 +1312,7 @@ GameObject:
   - component: {fileID: 1235536836}
   - component: {fileID: 1235536834}
   - component: {fileID: 1235536832}
+  - component: {fileID: 1235536831}
   m_Layer: 0
   m_Name: Light1
   m_TagString: Untagged
@@ -1318,6 +1320,32 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &1235536831
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1235536830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 46b5d2d76c99b9c47856672310d0b6af, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewRadius: 5.67
+  viewAngle: 360
+  viewAngleAmount: 0
+  targetMask:
+    serializedVersion: 2
+    m_Bits: 0
+  obstacleMask:
+    serializedVersion: 2
+    m_Bits: 256
+  visibleTargets: []
+  meshResolution: 1
+  edgeResolveIterations: 4
+  edgeDstThreshold: 0.5
+  viewMeshFilter: {fileID: 592353551}
 --- !u!81 &1235536832
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1333,13 +1361,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1235536830}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: a173a759b468c594fa7134470ec0e219, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   viewRadius: 5
   viewAngle: 360
+  viewAngleAmount: 0
   targetMask:
     serializedVersion: 2
     m_Bits: 512

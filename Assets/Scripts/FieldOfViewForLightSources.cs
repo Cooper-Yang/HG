@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class FieldOfViewForLightSources : MonoBehaviour
 {
+    private bool on = true;
+
     public float viewRadius;
-    [Range(0,360)]
+    [Range(0, 360)]
     public float viewAngle;
+    public float viewAngleAmount;
 
     public LayerMask targetMask;
     public LayerMask obstacleMask;
@@ -36,6 +39,25 @@ public class FieldOfViewForLightSources : MonoBehaviour
             yield return new WaitForSeconds(delay);
             //FindVisibleTargets();
         }
+    }
+
+    private void Update()
+    {
+        //print(on);
+        /*if (Input.GetKeyDown(KeyCode.T))
+        {
+            print("switch");
+            if (on)
+            {
+                on = false;
+                viewAngle = 0;
+            }
+            else if (!on)
+            {
+                on = true;
+                viewAngle = viewAngleAmount;
+            }
+        }*/
     }
 
     private void LateUpdate()
@@ -101,7 +123,7 @@ public class FieldOfViewForLightSources : MonoBehaviour
         int[] triangles = new int[(vertexCount - 2) * 3];
 
         vertices[0] = Vector3.zero;
-        for (int i = 0; i <vertexCount-1; i++)
+        for (int i = 0; i < vertexCount - 1; i++)
         {
             vertices[i + 1] = transform.InverseTransformPoint(viewPoints[i]);
 
@@ -152,7 +174,7 @@ public class FieldOfViewForLightSources : MonoBehaviour
     {
         Vector3 dir = DirFromAngle(globalAngle, false);
         RaycastHit2D hit = Physics2D.Raycast(transform.position, dir, viewRadius, obstacleMask);
-        
+
         if (hit)
         {
             return new ViewCastInfo(true, hit.point, hit.distance, globalAngle);
@@ -169,7 +191,7 @@ public class FieldOfViewForLightSources : MonoBehaviour
         {
             angleInDegrees -= transform.eulerAngles.z;
         }
-        return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), Mathf.Cos(angleInDegrees * Mathf.Deg2Rad),0 );
+        return new Vector3(Mathf.Sin(angleInDegrees * Mathf.Deg2Rad), Mathf.Cos(angleInDegrees * Mathf.Deg2Rad), 0);
     }
 
     public struct ViewCastInfo
