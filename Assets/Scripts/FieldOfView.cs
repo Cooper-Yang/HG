@@ -43,7 +43,7 @@ public class FieldOfView : MonoBehaviour
 
     private void Update()
     {
-        print(on);
+        //print(on);
         if (Input.GetKeyDown(KeyCode.T))
         {
             print("switch");
@@ -68,18 +68,21 @@ public class FieldOfView : MonoBehaviour
     void FindVisibleTargets() // not working
     {
         visibleTargets.Clear();
-        Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
+        Collider2D[] targetsInViewRadius = Physics2D.OverlapCircleAll(transform.position, viewRadius, targetMask);
+        print(targetsInViewRadius.Length);
 
         for (int i = 0; i < targetsInViewRadius.Length; i++)
         {
             Transform target = targetsInViewRadius[i].transform;
             Vector3 dirToTarget = (target.position - transform.position).normalized;
-            if (Vector3.Angle(transform.forward, dirToTarget) < viewAngle / 2)
+            if (Vector3.Angle(transform.up, dirToTarget) < viewAngle / 2)
             {
+                print("almost found one");
                 float dstToTarget = Vector3.Distance(transform.position, target.position);
 
                 if (!Physics2D.Raycast(transform.position,dirToTarget, dstToTarget, obstacleMask))
                 {
+                    print("found one");
                     visibleTargets.Add(target);
                 }
             }
