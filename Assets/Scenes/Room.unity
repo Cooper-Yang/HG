@@ -892,7 +892,7 @@ MonoBehaviour:
   alwaysDrawGizmos: 1
   slowWhenNotFacingTarget: 0
   whenCloseToDestination: 0
-  constrainInsideGraph: 0
+  constrainInsideGraph: 1
 --- !u!114 &810754587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -935,6 +935,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   version: 1
   target: {fileID: 485747363}
+  monster: {fileID: 965263728}
 --- !u!4 &810754589
 Transform:
   m_ObjectHideFlags: 0
