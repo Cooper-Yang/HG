@@ -19,7 +19,7 @@ public class SoundManager : MonoBehaviour
     int lastMonsterWalk;
     int lastMonsterRoar;
 
-    float roarTimer;
+    float roarTimer = 0;
     bool timerFlag = false;
 
     private void Awake()
@@ -55,36 +55,40 @@ public class SoundManager : MonoBehaviour
 
         if (timerFlag)
         {
-            roarTimer -= Time.deltaTime;
+            roarTimer -= Time.deltaTime; 
+
+            if (roarTimer < 0)
+            {
+                timerFlag = false;
+            }
         }
 
-        if (roarTimer < -1)
-        {
-            timerFlag = false;
-        }
+
     }
 
     public void PlayerWalkSound(Vector3 playerPosition)
     {
-        if(roarTimer < 0)
-        {
-            int clipNum = GetRandom(playerStep.Length, lastPlayerWalk);
-            lastPlayerWalk = PlaySound(playerStep, clipNum, playerPosition);
-            timerFlag = true;
-        }
-
+        int clipNum = GetRandom(playerStep.Length, lastPlayerWalk);
+        lastPlayerWalk = PlaySound(playerStep, clipNum, playerPosition);
     }
 
     public void MonsterRoarSound(Vector3 monsterPosition)
     {
-        int clipNum = GetRandom(monsterStep.Length, lastMonsterRoar);
-        lastMonsterRoar = PlaySound(monsterStep, clipNum, monsterPosition);
+        if (roarTimer < 0.1)
+        {
+            int clipNum = GetRandom(animalRoar.Length, lastMonsterRoar);
+            lastMonsterRoar = PlaySound(animalRoar, clipNum, monsterPosition);
+            timerFlag = true;
+            roarTimer = 30;
+        }
+
     }
 
 
 
     public void MonsterWalkSound(Vector3 monsterPosition)
     {
+
         int clipNum = GetRandom(monsterStep.Length, lastMonsterWalk);
         lastMonsterWalk = PlaySound(monsterStep, clipNum, monsterPosition);
     }
