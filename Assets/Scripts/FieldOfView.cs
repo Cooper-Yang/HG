@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FieldOfView : MonoBehaviour
 {
-    private bool on = true;
+    public static bool on = true;
     
     public float viewRadius;
     [Range(0,360)]
