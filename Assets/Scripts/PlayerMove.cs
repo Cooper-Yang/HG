@@ -54,12 +54,10 @@ public class PlayerMove : MonoBehaviour
 
         if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0 || Mathf.Abs(Input.GetAxisRaw("Vertical")) > 0)
         {
-            print("fuck my life");
             thisAnimator.SetBool("running", true);//Play("PlayerWalking");
         }
         else
         {
-            print("fuck your life");
             thisAnimator.SetBool("running", false);//.Play("Stand");
         }
         MouseLook();

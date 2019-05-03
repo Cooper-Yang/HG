@@ -37,7 +37,7 @@ public class FieldOfView : MonoBehaviour
         while (true)
         {
             yield return new WaitForSeconds(delay);
-            //FindVisibleTargets();
+            FindVisibleTargets();
         }
     }
 
@@ -65,7 +65,7 @@ public class FieldOfView : MonoBehaviour
         DrawFieldOfView();
     }
 
-    /*void FindVisibleTargets() // not working
+    void FindVisibleTargets() // not working
     {
         visibleTargets.Clear();
         Collider[] targetsInViewRadius = Physics.OverlapSphere(transform.position, viewRadius, targetMask);
@@ -78,13 +78,13 @@ public class FieldOfView : MonoBehaviour
             {
                 float dstToTarget = Vector3.Distance(transform.position, target.position);
 
-                if (!Physics.Raycast(transform.position,dirToTarget, dstToTarget, obstacleMask))
+                if (!Physics2D.Raycast(transform.position,dirToTarget, dstToTarget, obstacleMask))
                 {
                     visibleTargets.Add(target);
                 }
             }
         }
-    }*/
+    }
 
     void DrawFieldOfView()
     {
@@ -113,6 +113,7 @@ public class FieldOfView : MonoBehaviour
                         viewPoints.Add(edge.pointB);
                     }
                 }
+
             }
             viewPoints.Add(newViewCast.point);
             oldViewCast = newViewCast;
@@ -134,7 +135,6 @@ public class FieldOfView : MonoBehaviour
                 triangles[i * 3 + 2] = i + 2;
             }
         }
-
         viewMesh.Clear();
         viewMesh.vertices = vertices;
         viewMesh.triangles = triangles;
