@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class FieldOfViewForLightSources : MonoBehaviour
 {
-    private bool on = true;
 
     public float viewRadius;
     [Range(0, 360)]
@@ -39,25 +38,6 @@ public class FieldOfViewForLightSources : MonoBehaviour
             yield return new WaitForSeconds(delay);
             //FindVisibleTargets();
         }
-    }
-
-    private void Update()
-    {
-        //print(on);
-        /*if (Input.GetKeyDown(KeyCode.T))
-        {
-            print("switch");
-            if (on)
-            {
-                on = false;
-                viewAngle = 0;
-            }
-            else if (!on)
-            {
-                on = true;
-                viewAngle = viewAngleAmount;
-            }
-        }*/
     }
 
     private void LateUpdate()
