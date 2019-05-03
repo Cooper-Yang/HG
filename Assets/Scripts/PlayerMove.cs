@@ -54,11 +54,11 @@ public class PlayerMove : MonoBehaviour
 
         if (Mathf.Abs(Input.GetAxisRaw("Horizontal")) > 0 || Mathf.Abs(Input.GetAxisRaw("Vertical")) > 0)
         {
-            thisAnimator.SetBool("running", true);//Play("PlayerWalking");
+            thisAnimator.SetBool("running", true);
         }
         else
         {
-            thisAnimator.SetBool("running", false);//.Play("Stand");
+            thisAnimator.SetBool("running", false);
         }
         MouseLook();
     }
