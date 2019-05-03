@@ -22,6 +22,7 @@ public class FieldOfView : MonoBehaviour
     public float edgeDstThreshold;
 
     public MeshFilter viewMeshFilter;
+    public Transform monster;
     Mesh viewMesh;
 
     private void Start()
@@ -84,6 +85,7 @@ public class FieldOfView : MonoBehaviour
                 {
                     print("found one");
                     visibleTargets.Add(target);
+                    SoundManager.me.MonsterRoarSound(monster.position);
                 }
             }
         }
