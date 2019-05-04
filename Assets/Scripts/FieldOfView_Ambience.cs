@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FieldOfView : MonoBehaviour
+public class FieldOfView_Ambience : MonoBehaviour
 {
     public static bool on = true;
     
@@ -44,22 +44,21 @@ public class FieldOfView : MonoBehaviour
 
     private void Update()
     {
-        print(on);
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            print("switch");
-            if (on)
-            {
-                on = false;
-                viewAngle = 0;
-            }
-            else if (!on)
-            {
-                print("off");
-                on = true;
-                viewAngle = viewAngleAmount;
-            }
-        }
+        //print(on);
+        //if (Input.GetKeyDown(KeyCode.T))
+        //{
+        //    print("switch");
+        //    if (on)
+        //    {
+        //        on = false;
+        //        viewAngle = 0;
+        //    }
+        //    else if (!on)
+        //    {
+        //        on = true;
+        //        viewAngle = viewAngleAmount;
+        //    }
+        //}
     }
 
     private void LateUpdate()
