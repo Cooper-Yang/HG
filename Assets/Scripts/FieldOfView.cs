@@ -47,15 +47,16 @@ public class FieldOfView : MonoBehaviour
         print(on);
         if (Input.GetKeyDown(KeyCode.T))
         {
-            print("switch");
+            //print("switch");
             if (on)
             {
+                print("off");
                 on = false;
                 viewAngle = 0;
             }
             else if (!on)
             {
-                print("off");
+                print("on");
                 on = true;
                 viewAngle = viewAngleAmount;
             }
@@ -67,11 +68,11 @@ public class FieldOfView : MonoBehaviour
         DrawFieldOfView();
     }
 
-    void FindVisibleTargets() // not working
+    void FindVisibleTargets()
     {
         visibleTargets.Clear();
         Collider2D[] targetsInViewRadius = Physics2D.OverlapCircleAll(transform.position, viewRadius, targetMask);
-        print(targetsInViewRadius.Length);
+        //print(targetsInViewRadius.Length);
 
         for (int i = 0; i < targetsInViewRadius.Length; i++)
         {
@@ -79,12 +80,12 @@ public class FieldOfView : MonoBehaviour
             Vector3 dirToTarget = (target.position - transform.position).normalized;
             if (Vector3.Angle(transform.up, dirToTarget) < viewAngle / 2)
             {
-                print("almost found one");
+                //print("almost found one");
                 float dstToTarget = Vector3.Distance(transform.position, target.position);
 
                 if (!Physics2D.Raycast(transform.position,dirToTarget, dstToTarget, obstacleMask))
                 {
-                    print("found one");
+                    //print("found one");
                     visibleTargets.Add(target);
                     SoundManager.me.MonsterRoarSound(monster.position);
                 }
