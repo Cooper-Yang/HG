@@ -498,6 +498,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 684778245}
+  monster: {fileID: 810754584}
+  currentMonster: {x: 0, y: 0, z: 0}
 --- !u!1 &492042159
 GameObject:
   m_ObjectHideFlags: 0

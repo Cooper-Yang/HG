@@ -41,6 +41,11 @@ namespace Pathfinding {
                 animationOn = !animationOn;
                 monster.enabled = animationOn;
             }
+            else
+            {
+                animationOn = !animationOn;
+                monster.enabled = animationOn;
+            }
         }
 	}
 }

@@ -6,6 +6,7 @@ public class FollowPlayer : MonoBehaviour
 {
     public GameObject player;
     public GameObject monster;
+    public Vector3 currentMonster;
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +17,7 @@ public class FollowPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        currentMonster = monster.transform.position;
         if (FieldOfView.on)
         {
             transform.position = player.transform.position;
@@ -23,7 +25,7 @@ public class FollowPlayer : MonoBehaviour
 
         if (!FieldOfView.on)
         {
-            transform.position = monster.transform.position;
+            transform.position = currentMonster;
         }
     }
 }
