@@ -22,7 +22,7 @@ public class FieldOfView_Ambience : MonoBehaviour
     public float edgeDstThreshold;
 
     public MeshFilter viewMeshFilter;
-    public Transform monster;
+    //public Transform monster;
     Mesh viewMesh;
 
     private void Start()
@@ -41,12 +41,12 @@ public class FieldOfView_Ambience : MonoBehaviour
     //        FindVisibleTargets();
     //    }
     //}
-    
 
-    //private void LateUpdate()
-    //{
-    //    DrawFieldOfView();
-    //}
+
+    private void LateUpdate()
+    {
+        DrawFieldOfView();
+    }
 
     //void FindVisibleTargets() // not working
     //{
