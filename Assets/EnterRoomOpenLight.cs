@@ -18,6 +18,14 @@ public class EnterRoomOpenLight : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if (gameObject.GetComponent<BoxCollider2D>().IsTouchingLayers(player))
+        {
+
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D player)
+    {
         
     }
 }
