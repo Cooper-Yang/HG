@@ -45,9 +45,8 @@ public class FieldOfView : MonoBehaviour
     private void Update()
     {
         print(on);
-        if (Input.GetKeyDown(KeyCode.T))
+        if (Input.GetKeyDown(KeyCode.T)) // turn on or off torchlight
         {
-            //print("switch");
             if (on)
             {
                 print("off");
@@ -72,7 +71,6 @@ public class FieldOfView : MonoBehaviour
     {
         visibleTargets.Clear();
         Collider2D[] targetsInViewRadius = Physics2D.OverlapCircleAll(transform.position, viewRadius, targetMask);
-        //print(targetsInViewRadius.Length);
 
         for (int i = 0; i < targetsInViewRadius.Length; i++)
         {
@@ -80,12 +78,10 @@ public class FieldOfView : MonoBehaviour
             Vector3 dirToTarget = (target.position - transform.position).normalized;
             if (Vector3.Angle(transform.up, dirToTarget) < viewAngle / 2)
             {
-                //print("almost found one");
                 float dstToTarget = Vector3.Distance(transform.position, target.position);
 
                 if (!Physics2D.Raycast(transform.position,dirToTarget, dstToTarget, obstacleMask))
                 {
-                    //print("found one");
                     visibleTargets.Add(target);
                     SoundManager.me.MonsterRoarSound(monster.position);
                 }

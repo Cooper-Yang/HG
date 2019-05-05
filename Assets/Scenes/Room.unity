@@ -1801,7 +1801,7 @@ GameObject:
   - component: {fileID: 1003742964}
   - component: {fileID: 1003742965}
   m_Layer: 10
-  m_Name: girl
+  m_Name: PlayerSprite
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2994,6 +2994,7 @@ GameObject:
   - component: {fileID: 1753261646}
   - component: {fileID: 1753261649}
   - component: {fileID: 1753261648}
+  - component: {fileID: 1753261650}
   m_Layer: 8
   m_Name: obstacle2
   m_TagString: Untagged
@@ -3110,6 +3111,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &1753261650
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1753261645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abca61b8d24840446a95d42e6c41cde6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1789803794
 GameObject:
   m_ObjectHideFlags: 0
