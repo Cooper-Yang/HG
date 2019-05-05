@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnterRoomOpenLight : MonoBehaviour
 {
+    public Collider2D player;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,9 +20,13 @@ public class EnterRoomOpenLight : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (gameObject.GetComponent<BoxCollider2D>().IsTouchingLayers(player))
+        if (GetComponent<BoxCollider2D>().IsTouching(player))
         {
-
+            GetComponent<SpriteRenderer>().enabled = false;
+        }
+        else
+        {
+            GetComponent<SpriteRenderer>().enabled = true;
         }
     }
 

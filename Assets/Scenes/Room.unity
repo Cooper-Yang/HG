@@ -782,7 +782,7 @@ GameObject:
   - component: {fileID: 684778250}
   - component: {fileID: 684778251}
   - component: {fileID: 684778252}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -850,7 +850,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 684778245}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.67, y: -0.19, z: 10}
+  m_LocalPosition: {x: -3.72, y: 0.27, z: 10}
   m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children:
   - {fileID: 1003742962}
@@ -1800,7 +1800,7 @@ GameObject:
   - component: {fileID: 1003742963}
   - component: {fileID: 1003742964}
   - component: {fileID: 1003742965}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: girl
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2261,6 +2261,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4504e3a712dc2cc43bbd14587275f87e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 684778252}
 --- !u!61 &1405256960
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -2915,7 +2916,7 @@ GameObject:
   - component: {fileID: 1686027377}
   - component: {fileID: 1686027375}
   - component: {fileID: 1686027376}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: View Visualization
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4300,7 +4301,7 @@ GameObject:
   - component: {fileID: 2079116875}
   - component: {fileID: 2079116877}
   - component: {fileID: 2079116876}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Ambient Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
