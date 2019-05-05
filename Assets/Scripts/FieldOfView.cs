@@ -44,7 +44,7 @@ public class FieldOfView : MonoBehaviour
 
     private void Update()
     {
-        print(on);
+        //print(on);
         if (Input.GetKeyDown(KeyCode.T)) // turn on or off torchlight
         {
             if (on)
