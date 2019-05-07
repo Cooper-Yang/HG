@@ -5,6 +5,7 @@ using UnityEngine;
 public class DoorOpen : MonoBehaviour
 {
     public float speedRotate;
+    public float limitDegree;
     bool openFlag;
     float degree;
     void Update()
@@ -24,11 +25,11 @@ public class DoorOpen : MonoBehaviour
 
     public void RotateDoor(bool open)
     {
-        if (transform.rotation.eulerAngles.z < 90&&openFlag)
+        if (transform.rotation.eulerAngles.z < limitDegree && openFlag)
         {
             degree = speedRotate * Time.deltaTime;
         }
-        if(transform.rotation.eulerAngles.z > 90)
+        if(transform.rotation.eulerAngles.z > limitDegree)
         {
             openFlag = false;
             degree = 0;
